@@ -1,0 +1,27 @@
+<h1>Listing rubric_line_items</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Rubric</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rubric_line_items.each do |rubric_line_item| %>
+  <tr>
+    <td><%= rubric_line_item.name %></td>
+    <td><%= rubric_line_item.description %></td>
+    <td><%= rubric_line_item.rubric_id %></td>
+    <td><%= link_to 'Show', rubric_line_item %></td>
+    <td><%= link_to 'Edit', edit_rubric_line_item_path(rubric_line_item) %></td>
+    <td><%= link_to 'Destroy', rubric_line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Rubric line item', new_rubric_line_item_path %>

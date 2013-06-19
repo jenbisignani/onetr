@@ -1,0 +1,50 @@
+<% if @can_create %>
+<h1>Rubrics given</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Student</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rubrics_given.each do |rubric| %>
+  <tr>
+    <td><%= rubric.name %></td>
+    <td><%= rubric.description %></td>
+    <td><%= rubric.student.first_name %></td>
+    <td><%= link_to 'Show', rubric %></td>
+    <td><%= link_to 'Destroy', rubric, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% else %>
+<h1>Rubrics Received</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Teacher</th>
+    <th></th>
+  </tr>
+
+<% @rubrics_received.each do |rubric| %>
+  <tr>
+    <td><%= rubric.name %></td>
+    <td><%= rubric.description %></td>
+    <td><%= rubric.teacher.first_name %></td>
+    <td><%= link_to 'Show', rubric %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% end %>
+<% if @can_create %>
+  <%= link_to 'New Rubric', new_rubric_path %>
+<% end %>

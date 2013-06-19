@@ -1,0 +1,2 @@
+module RubricLineItemsHelper
+end

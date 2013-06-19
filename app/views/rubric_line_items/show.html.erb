@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @rubric_line_item.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @rubric_line_item.description %>
+</p>
+
+<p>
+  <b>Rubric:</b>
+  <%= @rubric_line_item.rubric_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_rubric_line_item_path(@rubric_line_item) %> |
+<%= link_to 'Back', rubric_line_items_path %>

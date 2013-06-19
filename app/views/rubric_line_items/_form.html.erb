@@ -1,0 +1,29 @@
+<%= form_for(@rubric_line_item) do |f| %>
+  <% if @rubric_line_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rubric_line_item.errors.count, "error") %> prohibited this rubric_line_item from being saved:</h2>
+
+      <ul>
+      <% @rubric_line_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :rubric_id %><br />
+    <%= f.number_field :rubric_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,50 @@
+<% if !@can_create %>
+<h1>Positives Received</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>From</th>
+  </tr>
+
+<% @positives_received.each do |positive| %>
+  <tr>
+    <td><%= positive.created_at.strftime("%Y-%m-%d") %>
+    <td><%= positive.name %></td>
+    <td><%= positive.description %></td>
+    <td><%= positive.teacher.first_name %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% else %>
+
+<h1>Positives Given</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>To</th>
+  </tr>
+
+<% @positives_given.each do |positive| %>
+  <tr>
+    <td><%= positive.created_at.strftime("%Y-%m-%d") %>
+    <td><%= positive.name %></td>
+    <td><%= positive.description %></td>
+    <td><%= positive.student.first_name %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'New Positive', new_positive_path %>
+<% end %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @positive.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @positive.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_positive_path(@positive) %> |
+<%= link_to 'Back', positives_path %>
