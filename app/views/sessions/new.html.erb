@@ -6,4 +6,7 @@
     <%= text_field_tag :username, params[:username] %>
   </p>
   <p class="button"><%= submit_tag "Log in" %></p>
+  <p>
+    or <%= link_to "Sign up", :controller => :users, :action => :new %>
+  </p>
 <% end %>
