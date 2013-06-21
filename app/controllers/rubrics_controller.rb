@@ -2,8 +2,10 @@ class RubricsController < ApplicationController
   # GET /rubrics
   # GET /rubrics.json
   def index
-    @rubrics_given = current_user.rubrics_given
+    @rubrics_given = Rubric.assigned_rubrics_for(current_user)
     @rubrics_received = current_user.rubrics_received
+
+    @templates = Rubric.templates_for(current_user)
     @can_create = current_user.teacher?
 
     respond_to do |format|
@@ -29,6 +31,7 @@ class RubricsController < ApplicationController
   def new
     @rubric = Rubric.new
     @users = Student.all
+    @template = params[:template]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,15 +42,15 @@ class RubricsController < ApplicationController
   # GET /rubrics/1/edit
   def edit
     @rubric = Rubric.find(params[:id])
+    @users = Student.all
+    @rubric_line_items = @rubric.rubric_line_items
   end
 
   # POST /rubrics
   # POST /rubrics.json
   def create
     @rubric = Rubric.create!(params[:rubric].merge(:teacher_id => current_user.id))
-    @rubric_line_items =
-      [RubricLineItem.new(:rubric_id => @rubric.id, :name => "item1", :description => "item 1 desc"),
-      RubricLineItem.new(:rubric_id => @rubric.id, :name => "item2", :description => "item 2 desc")]
+    @rubric_line_items = []
 
     respond_to do |format|
       if @rubric.save && @rubric_line_items.each(&:save)

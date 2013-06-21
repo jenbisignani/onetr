@@ -2,5 +2,21 @@
 
 <%= render 'form' %>
 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @rubric_line_items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= item.description %></td>
+    <td><%= link_to 'Edit', edit_rubric_line_item_path(item) %> </td>
+    <td></td>
+<%end%>
+
+<%= link_to 'Add line item', new_rubric_line_item_path(:rubric_id => @rubric.id) %> |
 <%= link_to 'Show', @rubric %> |
 <%= link_to 'Back', rubrics_path %>

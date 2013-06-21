@@ -11,10 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :student %><br \>
-    <%= f.select "student_id", options_from_collection_for_select(@users, "id", "username") %>
-
+  <% if !@template %>
+    <div class="field">
+      <%= f.label :student %><br \>
+      <%= f.select "student_id", options_from_collection_for_select(@users, "id", "username") %>
+  <% end %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>

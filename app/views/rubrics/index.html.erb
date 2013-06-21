@@ -1,5 +1,26 @@
 <% if @can_create %>
-<h1>Rubrics given</h1>
+<h1> Your Templates </h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @templates.each do |template| %>
+  <tr>
+    <td><%= template.name %> </td>
+    <td><%= template.description %> </td>
+    <td><%= link_to 'Show', template %></td>
+    <td><%= link_to 'Edit', edit_rubric_path(template) %></td>
+    <td><%= link_to 'Destroy', template, method: :delete, data: { confirm: 'Rubrics using this template will not be deleted' } %> </td>
+  </tr>
+<% end %>
+</table>
+
+<h1> Your Rubrics Assigned </h1>
 
 <table>
   <tr>
@@ -16,6 +37,7 @@
     <td><%= rubric.description %></td>
     <td><%= rubric.student.first_name %></td>
     <td><%= link_to 'Show', rubric %></td>
+    <td><%= link_to 'Edit', edit_rubric_path(rubric) %></td>
     <td><%= link_to 'Destroy', rubric, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
@@ -47,4 +69,5 @@
 <% end %>
 <% if @can_create %>
   <%= link_to 'New Rubric', new_rubric_path %>
+  <%= link_to 'New Template Rubric', new_rubric_path(:template => true) %>
 <% end %>

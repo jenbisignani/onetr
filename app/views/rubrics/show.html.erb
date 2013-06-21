@@ -10,10 +10,14 @@
   <%= @rubric.description %>
 </p>
 
+<table>
 <% @rubric_line_items.each do |line_item| %>
-  <p><%= line_item.name %></p>
+  <tr>
+    <td><%= line_item.name %></td>
+    <td><%= line_item.description %></td>
+  </tr>
 <% end %>
-
+</table>
 
 <%= link_to 'Edit', edit_rubric_path(@rubric) %> |
 <%= link_to 'Back', rubrics_path %>

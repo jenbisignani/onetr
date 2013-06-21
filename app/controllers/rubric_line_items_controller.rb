@@ -25,7 +25,7 @@ class RubricLineItemsController < ApplicationController
   # GET /rubric_line_items/new.json
   def new
     @rubric_line_item = RubricLineItem.new
-
+    @rubric_id = params[:rubric_id].to_i
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @rubric_line_item }
@@ -35,6 +35,7 @@ class RubricLineItemsController < ApplicationController
   # GET /rubric_line_items/1/edit
   def edit
     @rubric_line_item = RubricLineItem.find(params[:id])
+    @rubric_id = @rubric_line_item.rubric_id
   end
 
   # POST /rubric_line_items
@@ -44,7 +45,7 @@ class RubricLineItemsController < ApplicationController
 
     respond_to do |format|
       if @rubric_line_item.save
-        format.html { redirect_to @rubric_line_item, notice: 'Rubric line item was successfully created.' }
+        format.html { redirect_to edit_rubric_path(@rubric_line_item.rubric), notice: 'Rubric line item was successfully created.' }
         format.json { render json: @rubric_line_item, status: :created, location: @rubric_line_item }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class RubricLineItemsController < ApplicationController
 
     respond_to do |format|
       if @rubric_line_item.update_attributes(params[:rubric_line_item])
-        format.html { redirect_to @rubric_line_item, notice: 'Rubric line item was successfully updated.' }
+        format.html { redirect_to edit_rubric_path(@rubric_line_item.rubric), notice: 'Rubric line item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
