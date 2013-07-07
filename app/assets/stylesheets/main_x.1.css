@@ -1,0 +1,155 @@
+$blue: #35627F;  
+$purple: #41458A;	
+$green: #358A61;	
+$light-blue: #5F89A5; 
+/*  New Colors
+	$seafoam_green: #77B3BE
+	$light_blue: #8494C8
+	$light_green: #84D696
+	$light_orange: #FFCD9D
+	$off_white: #FFF8F2
+	$dark_grey: #6F6F6F
+
+Still need to be arranged in terms of order/priority.
+*/
+
+.clearfix {
+  display: inline-block;
+  height: 1px;
+
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+#content {
+  width: 1000px;
+  background-color: $dark_grey;
+  padding: 20px;
+  height: 1000px;
+  margin: auto;
+  margin-top: 75px;
+}
+
+
+#navigation {
+  border: 5px;
+  width: 50%;
+  margin-left: 50%;
+  margin-bottom: 0;
+  .nav-item {
+    float: left;
+    background-color: $seafoam_green;
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    margin-left: 10px;
+    border-top: 2px solid;
+    border-left: 2px;
+	border-top-left-radius:12px;
+    border-right: 2px;
+	border-top-right-radius:12px;
+    border-color: $seafoam_green;
+	/* Changed background color and border color to seafoam green.  Also included a radius for the tabs or maybe just remove the border altogether?  I would like to see how it looks */
+	
+    a {
+      color: dark_grey;
+      &:visited{color: dark_grey;}
+      &:hover{
+        color: white;
+        background-color: $_seafoam_green;
+	/* Changed Color, visited{color:''} and background color */
+      }
+    }
+  }
+}
+
+.black-line {
+  clear: both;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  margin: 0;
+}
+
+#main {
+  clear: both;
+  margin: 10px;
+}
+
+body {
+  background-color: $blue;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
