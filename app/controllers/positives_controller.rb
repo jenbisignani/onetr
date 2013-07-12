@@ -28,6 +28,7 @@ class PositivesController < ApplicationController
   def new
     @positive = Positive.new
     @rubric_line_item_id = params[:rubric_line_item_id].to_i
+    @rubric_line_item = RubricLineItem.find(@rubric_line_item_id)
     @users = Student.all
     respond_to do |format|
       format.html # new.html.erb
