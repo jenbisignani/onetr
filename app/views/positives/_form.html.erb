@@ -12,17 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :student %><br \>
-    <%= f.select "student_id", options_from_collection_for_select(@users, "id", "username") %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :type %><br />
+    <%= f.select :type, ["Plus", "Plusplus", "Minus"] %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+    <%= f.hidden_field :rubric_line_item_id, :value => @rubric_line_item_id %>
   <div class="actions">
     <%= f.submit %>
   </div>

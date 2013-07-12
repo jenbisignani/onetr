@@ -1,0 +1,2 @@
+class Minus < Positive
+end

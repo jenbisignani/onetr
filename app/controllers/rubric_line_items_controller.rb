@@ -36,6 +36,7 @@ class RubricLineItemsController < ApplicationController
   def edit
     @rubric_line_item = RubricLineItem.find(params[:id])
     @rubric_id = @rubric_line_item.rubric_id
+    @positives = @rubric_line_item.positives
   end
 
   # POST /rubric_line_items

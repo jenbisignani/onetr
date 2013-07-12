@@ -2,5 +2,21 @@
 
 <%= render 'form' %>
 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @positives.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= item.description %></td>
+    <td><%= link_to 'Edit', edit_positive_path(item) %> </td>
+    <td></td>
+<%end%>
+
+<%= link_to 'Add positive', new_positive_path(:rubric_line_item_id => @rubric_line_item.id) %> |
 <%= link_to 'Show', @rubric_line_item %> |
 <%= link_to 'Back', rubric_line_items_path %>

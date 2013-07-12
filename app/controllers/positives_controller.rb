@@ -2,8 +2,8 @@ class PositivesController < ApplicationController
   # GET /positives
   # GET /positives.json
   def index
-    @positives_given = current_user.positives_given.all.sort_by(&:created_at)
-    @positives_received = current_user.positives_received.all.sort_by(&:created_at)
+    @positives_given = current_user.teacher? ? current_user.positives.all.sort_by(&:created_at) : []
+    @positives_received = current_user.student? ? current_user.positives_received.all.sort_by(&:created_at) : []
     @can_create = current_user.teacher?
 
     respond_to do |format|
@@ -27,6 +27,7 @@ class PositivesController < ApplicationController
   # GET /positives/new.json
   def new
     @positive = Positive.new
+    @rubric_line_item_id = params[:rubric_line_item_id].to_i
     @users = Student.all
     respond_to do |format|
       format.html # new.html.erb
@@ -37,12 +38,13 @@ class PositivesController < ApplicationController
   # GET /positives/1/edit
   def edit
     @positive = Positive.find(params[:id])
+    @rubric_line_item_id = @positive.rubric_line_item_id
   end
 
   # POST /positives
   # POST /positives.json
   def create
-    @positive = Positive.new(params[:positive].merge(:teacher_id => current_user.id))
+    @positive = Positive.create!(params[:positive])
 
     respond_to do |format|
       if @positive.save

@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130621042221) do
+ActiveRecord::Schema.define(:version => 20130707102823) do
 
   create_table "positives", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "teacher_id"
-    t.integer  "student_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "rubric_line_item_id"
+    t.string   "type"
   end
 
   create_table "rubric_line_items", :force => true do |t|
