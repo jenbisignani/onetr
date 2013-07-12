@@ -16,6 +16,15 @@
     <td><%= line_item.name %></td>
     <td><%= line_item.description %></td>
   </tr>
+  <% line_item.positives.each do |positive| %>
+    <tr>
+      <td>
+      </td>
+      <td>
+        <%= positive.description =%>
+      </td>
+  </tr>
+<% end %>
 <% end %>
 </table>
 

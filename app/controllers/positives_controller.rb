@@ -48,7 +48,7 @@ class PositivesController < ApplicationController
 
     respond_to do |format|
       if @positive.save
-        format.html { redirect_to  :positives, notice: 'Positive was successfully created.' }
+        format.html { redirect_to edit_rubric_line_item_path(@positive.rubric_line_item), notice: 'Positive was successfully created.' }
         format.json { render json: @positive, status: :created, location: @positive }
       else
         format.html { render action: "new" }
