@@ -8,12 +8,12 @@ $light_green: #84D696;
 $light_orange: #FFCD9D;
 $off_white: #FFF8F2;
 $dark_grey: #6F6F6F;
+$black: #000000;
 
 
 .clearfix {
   display: inline-block;
   height: 1px;
-
 }
 
 .clearfix:after {
@@ -31,7 +31,7 @@ $dark_grey: #6F6F6F;
   padding: 20px;
   height: 1000px;
   margin: auto;
-  margin-top: 75px;
+  margin-top: -10px;
 }
 
 
@@ -56,12 +56,14 @@ $dark_grey: #6F6F6F;
 	/* Changed background color and border color to seafoam green.  Also included a radius for the tabs or maybe just remove the border altogether?  I would like to see how it looks */
 	
     a {
-      color: dark_grey;
+      color: #000000;
       &:visited{color: dark_grey;}
       &:hover{
         color: white;
         background-color: $seafoam_green;
 	/* Changed Color, visited{color:''} and background color */
+	/*changed color to orange*/
+	
       }
     }
   }
