@@ -25,24 +25,24 @@ $black: #000000;
 	height: 0;
 }
 
-#content {
-  width: 1000px;
-  background-color: $dark_grey;
-  padding: 20px;
-  height: 1000px;
-  margin: auto;
-  margin-top: -10px;
+#content{
+  width:1000px;
+  background-color:#dark_grey;
+  padding:20px;
+  height:1000px;
+  margin:auto;
+  margin-top:-10px
 }
 
 
 #navigation {
   border: 5px;
   width: 50%;
-  margin-left: 50%;
+  margin-left: 60%;
   margin-bottom: 0;
   .nav-item {
     float: left;
-    background-color: $seafoam_green;
+    background-color: $light_orange;
     width: 120px;
     height: 50px;
     text-align: center;
@@ -52,18 +52,15 @@ $black: #000000;
 	border-top-left-radius:12px;
     border-right: 2px;
 	border-top-right-radius:12px;
-    border-color: $seafoam_green;
-	/* Changed background color and border color to seafoam green.  Also included a radius for the tabs or maybe just remove the border altogether?  I would like to see how it looks */
+    border-color: $black;
 	
     a {
-      color: #000000;
-      &:visited{color: dark_grey;}
+      color: $black;
+      &:visited{color: black;}
       &:hover{
-        color: white;
-        background-color: $seafoam_green;
-	/* Changed Color, visited{color:''} and background color */
-	/*changed color to orange*/
-	
+        color: black;
+        background-color: $light_orange;
+
       }
     }
   }
@@ -83,7 +80,7 @@ $black: #000000;
 }
 
 body {
-  background-color: $blue;
+  background-color: $black;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -158,4 +155,5 @@ div {
     list-style: square;
   }
 }
+
 
